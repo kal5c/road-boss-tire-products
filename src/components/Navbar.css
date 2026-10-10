@@ -1,0 +1,312 @@
+
+/* ==============================
+   ROADBOSS NAVBAR
+================================ */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+}
+
+.navbar-container {
+  width: min(1200px, 92%);
+  min-height: 86px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+/* Brand */
+
+.navbar-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.brand-name {
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -1.5px;
+}
+
+.brand-name span {
+  color: var(--accent);
+}
+
+.brand-tagline {
+  margin-top: 7px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2.1px;
+  color: var(--muted);
+}
+
+/* Navigation */
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 22px;
+}
+
+.navbar-menu > a {
+  position: relative;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.navbar-menu > a:not(.navbar-cta)::after {
+  position: absolute;
+  right: 0;
+  bottom: -8px;
+  left: 0;
+  height: 2px;
+  content: "";
+  background-color: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+
+.navbar-menu > a:not(.navbar-cta):hover {
+  color: var(--accent);
+}
+
+.navbar-menu > a:not(.navbar-cta):hover::after {
+  transform: scaleX(1);
+}
+
+/* Quote button */
+
+.navbar-menu > .navbar-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 14px 19px;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  background-color: var(--accent);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.navbar-menu > .navbar-cta:hover {
+  background-color: var(--accent-dark);
+  border-color: var(--accent-dark);
+  transform: translateY(-2px);
+}
+
+/* Mobile menu button */
+
+.navbar-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  background-color: var(--surface);
+  cursor: pointer;
+}
+
+.navbar-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin: 5px 0;
+  background-color: var(--text);
+}
+
+/* ==============================
+   TABLET AND MOBILE
+================================ */
+
+@media (max-width: 1180px) {
+  .navbar-container {
+    min-height: 76px;
+    gap: 15px;
+  }
+
+  .navbar-toggle {
+    display: block;
+    flex-shrink: 0;
+  }
+
+  .navbar-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 12px 4% 22px;
+    background-color: var(--surface);
+    border-top: 1px solid var(--border);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+  }
+
+  .navbar-menu.active {
+    display: flex;
+  }
+
+  .navbar-menu > a:not(.navbar-cta) {
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .navbar-menu > a:not(.navbar-cta)::after {
+    display: none;
+  }
+
+  .navbar-menu > .navbar-cta {
+    margin-top: 15px;
+    padding: 14px;
+  }
+}
+
+/* Smaller phones */
+
+@media (max-width: 400px) {
+  .brand-name {
+    font-size: 26px;
+  }
+
+  .brand-tagline {
+    font-size: 8px;
+    letter-spacing: 1.5px;
+  }
+
+  .navbar-container {
+    width: 90%;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar *,
+  .navbar *::before,
+  .navbar *::after {
+    transition: none !important;
+  }
+}
+
+/* ==============================
+   LANGUAGE + THEME TOOLS
+================================ */
+
+.navbar-tools {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 10px;
+}
+
+.lang-switch {
+  display: inline-flex;
+  padding: 3px;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  background: var(--surface-2);
+}
+
+.lang-switch button {
+  min-width: 38px;
+  min-height: 32px;
+  padding: 0 8px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.lang-switch button:hover {
+  color: var(--accent);
+}
+
+.lang-switch button[aria-pressed="true"] {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.theme-toggle {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  place-items: center;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  background: var(--surface-2);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.theme-toggle svg {
+  width: 19px;
+  height: 19px;
+}
+
+@media (max-width: 1180px) {
+  .navbar-tools {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .navbar-tools {
+    gap: 6px;
+  }
+
+  .lang-switch button {
+    min-width: 32px;
+    padding: 0 5px;
+    font-size: 11px;
+  }
+
+  .theme-toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .navbar-toggle {
+    width: 38px;
+    height: 38px;
+    padding: 8px;
+  }
+}

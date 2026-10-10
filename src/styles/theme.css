@@ -1,0 +1,163 @@
+/* ===========================================================
+   THEME TOKENS  (light = default, dark = [data-theme="dark"])
+   Change colors here and the whole site follows.
+=========================================================== */
+:root {
+  color-scheme: light;
+
+  --bg: #ffffff;
+  --bg-alt: #f7f7f7;
+  --surface: #ffffff;
+  --surface-2: #fafafa;
+  --input-bg: #ffffff;
+
+  --text: #181818;
+  --muted: #666666;
+  --muted-2: #999999;
+
+  --border: #e9e9e9;
+  --border-strong: #dcdcdc;
+
+  --accent: #e94b24;
+  --accent-dark: #c93817;
+  --accent-soft: #fce5dd;
+  --accent-softer: #fff0eb;
+  --on-accent: #ffffff;
+
+  /* "photo studio" backdrop for tire pictures (light in both themes) */
+  --stage-1: #ffffff;
+  --stage-2: #e8e6e2;
+  --photo-shape: #fce5dd;
+
+  --danger: #b42318;
+  --danger-bg: #fff0f0;
+  --danger-border: #f3b7b7;
+
+  --footer-bg: #181818;
+  --overlay: rgba(12, 15, 20, 0.7);
+
+  --shadow-card: 0 4px 14px rgba(0, 0, 0, 0.07);
+  --shadow-hover: 0 14px 35px rgba(0, 0, 0, 0.1);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #0f1115;
+  --bg-alt: #14171d;
+  --surface: #1a1e26;
+  --surface-2: #1f242d;
+  --input-bg: #12151b;
+
+  --text: #f1f2f4;
+  --muted: #a6adba;
+  --muted-2: #7d8492;
+
+  --border: #2a303b;
+  --border-strong: #3a4150;
+
+  --accent: #ff5a2e;
+  --accent-dark: #e24a20;
+  --accent-soft: rgba(255, 90, 46, 0.14);
+  --accent-softer: rgba(255, 90, 46, 0.12);
+  --on-accent: #ffffff;
+
+  --stage-1: #f6f4f1;
+  --stage-2: #d8d4cd;
+  --photo-shape: #ece3de;
+
+  --danger: #ff9b92;
+  --danger-bg: rgba(255, 90, 80, 0.1);
+  --danger-border: rgba(255, 120, 110, 0.4);
+
+  --footer-bg: #0a0c10;
+  --overlay: rgba(0, 0, 0, 0.78);
+
+  --shadow-card: 0 4px 14px rgba(0, 0, 0, 0.35);
+  --shadow-hover: 0 14px 35px rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, "Noto Sans Ethiopic", "Noto Sans SC", sans-serif;
+  color: var(--text);
+  background-color: var(--bg);
+  transition: background-color 0.25s ease, color 0.25s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- Amharic and Chinese typography ---------- */
+/* Tight negative letter-spacing looks wrong in these scripts. */
+html[lang="am"] h1,
+html[lang="am"] h2,
+html[lang="am"] h3,
+html[lang="am"] h4,
+html[lang="zh-CN"] h1,
+html[lang="zh-CN"] h2,
+html[lang="zh-CN"] h3,
+html[lang="zh-CN"] h4 {
+  letter-spacing: 0 !important;
+}
+
+html[lang="am"] body {
+  line-height: 1.55;
+}
+
+html[lang="am"] h1,
+html[lang="am"] h2 {
+  line-height: 1.3 !important;
+}
+
+html[lang="zh-CN"] h1,
+html[lang="zh-CN"] h2 {
+  line-height: 1.3 !important;
+}
+
+/* Small uppercase labels: no extra tracking for non-Latin scripts */
+html[lang="am"] [class*="eyebrow"],
+html[lang="zh-CN"] [class*="eyebrow"] {
+  letter-spacing: 0.5px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

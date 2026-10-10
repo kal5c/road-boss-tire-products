@@ -1,0 +1,4 @@
+/* Global layout helpers. Colors and base styles live in styles/theme.css */
+section[id] {
+  scroll-margin-top: 90px;
+}
